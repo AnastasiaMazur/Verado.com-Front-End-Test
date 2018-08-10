@@ -1,0 +1,35 @@
+<div class="message d-flex mt-2" *ngIf="msgInfoLoaded" [ngClass]="{'owner-msg': isOwner}">
+    <div class="offer-message d-flex" *ngIf="msg.offer">
+        <div class="offer-info">
+            <h5>Offer</h5>
+            <div class="offer-description">Description: {{msg?.offer.offerDescription}}</div>
+            <div class="offer-amount">Amount: {{ msg?.offer.offerAmount }}</div>
+        </div>
+        <div class="send-offer inline" (click)="acceptOffer()" title="Accept offer" *ngIf="!isOwner">
+            <button class="btn icon-btn">
+                <i class="fab fa-audible"></i>
+            </button>
+        </div>
+    </div>
+    <div class="text-message d-flex" *ngIf="!msg.offer">
+        <div class="sender-photo mr-4" *ngIf="!isOwner">
+            <img [src]="sender?.photoURL" width="100%" alt="">
+        </div>
+        <div class="message-info">
+            <div class="sender-info" *ngIf="!isOwner">
+                <span>{{ sender?.email }}</span>
+            </div>
+            <div class="message-text">
+                <p class="mb-0" [ngClass]="{'pl-3': isOwner}">{{ msg.text }}</p>
+            </div>
+        </div>
+        <div class="send-offer" (click)="sendOffer()"  title="Send an offer" *ngIf="chatStatus == 'public' && !isOwner">
+            <button class="btn icon-btn">
+                <i class="fab fa-audible"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+

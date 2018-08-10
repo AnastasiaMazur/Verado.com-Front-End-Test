@@ -1,0 +1,47 @@
+.chat-list, .chat-feed {
+    border: 1px solid var(--verado-color);
+}
+
+.chat-list li {
+    padding: 10px 0;
+    box-shadow: 0 1px 10px var(--verado-color);
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.chat-list li:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateY(100%);
+    transition: all .3s ease-in-out;
+    background: linear-gradient(to top, var(--verado-hover-color), var(--verado-color) 70%, transparent);
+}
+
+.chat-list li:hover:after {
+    transform: translateY(70%);
+}
+
+.chat-list li:not(:last-child) {
+    border-bottom: 1px solid var(--verado-color);
+}
+
+.private-chat, .public-chat {
+    padding: 5px 10px;
+}
+
+.companion-photoUrl {
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.companion-photoUrl > img {
+    width: 100%;
+    height: 100%;
+}

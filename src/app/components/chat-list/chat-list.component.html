@@ -1,0 +1,39 @@
+<button (click)="mockData()" class="ml-5 mb-2 mt-2 btn btn-primary">Create Public Thread</button>
+<div id="main" class="pb-2 pt-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="chat-list">
+          <ng-container *ngIf="chats$ | async as chats">
+            <ul [@appear]="chats.length">
+              <li class="item" *ngFor="let chat of chats" (click)="selectedChat = chat">
+                <div *ngIf="chat.status === 'public'" class="public-chat">
+                  <h5>Public Chat</h5>
+                  <span>{{ chat.name }}</span>
+                </div>
+                
+                <div *ngIf="chat.status === 'private'" class="private-chat d-flex align-items-center">
+                  <div class="companion-photoUrl mr-3">
+                    <img [src]="chat.companion.photoURL" alt="">
+                  </div>
+                  <div class="chat-info">
+                    <h5>Private Chat</h5>
+                    <span>{{ chat.companion.email }}</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </ng-container>
+        </div>
+        
+      </div>
+      <div class="col-sm-8">
+        <div class="chat-feed">
+          <app-chat-thread [chat]="selectedChat"></app-chat-thread>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+

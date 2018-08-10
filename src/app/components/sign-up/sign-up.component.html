@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="ro">
+    <div class="col-sm-12">
+      <form [formGroup]="signUpForm" (ngSubmit)="submit()">
+        <div class="form-group">
+          <label for="">Email</label>
+          <input type="text" class="form-control" formControlName="email">
+        </div>
+        <div class="form-group">
+          <label for="">Password</label>
+          <input type="password" class="form-control" formControlName="password">
+        </div>
+        <div class="form-group">
+          <label for="">Display Name</label>
+          <input type="text" class="form-control" formControlName="displayName">
+        </div>
+        <div class="form-group">
+          <label for="">Profile Picture</label>
+          <input type="file" class="form-control" (change)="onImageAdded($event)">
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" [style.width]="uploadProgress + '%'"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

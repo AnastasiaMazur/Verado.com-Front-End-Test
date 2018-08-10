@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --verado-color: #06C7A2;
+    --verado-hover-color: #07eabe;
+    --bg-color: #4f4f4f;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;  
+}
+
+input, textarea {
+    width: 100%;
+}
+
+label {
+    font-size: 14px;
+}
+
+#main {
+    background-color: var(--bg-color);
+    color: #fff;
+    height: 100vh;
+}
+
+.modal-toolbar {
+    height: 60px;
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--verado-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 3px 3px solid var(--verado-hover-color);
+}
+
+.custom-styles {
+    padding: 5px;
+    border: 1px solid var(--verado-color);
+    background: transparent;
+    font-size: 14px;
+    color: #fff;
+}
+
+.custom-styles:focus,
+.custom-styles:focus:active,
+.custom-styles:active {
+    outline: 1px solid var(--verado--hover-color);
+}
+
+.icon-btn {
+    border: 0;
+    outline: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 4px 6px;
+    font-size: 14px;
+}
+
+

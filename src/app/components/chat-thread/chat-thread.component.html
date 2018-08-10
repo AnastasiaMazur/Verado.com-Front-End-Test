@@ -1,0 +1,57 @@
+
+
+  <div class="chat-messages">
+    <div class="feed">
+      <div class="message" *ngFor="let message of messageList" [@appear]="messageList.length">
+        <app-message [msg]="message" [chat]="chat.status" (onOffer)="onOfferSending($event)" (onOfferAccept)="onOfferAccept()"></app-message>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3" (keydown.enter)="sendMessage(); textarea.value = ''">
+    <div class="col-sm-12">
+      <div class="message-input">
+        <textarea class="custom-styles" #textarea name="msg-input" [(ngModel)]="message.text" placeholder="Write a message..." id="" rows="3"></textarea>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+<app-modal #modal="CustomModal">
+  <div class="modal-toolbar">
+    <h3 class="mb-0">Offer information</h3>
+    <span (click)="modal.close()">Close</span>
+  </div>
+  <div class="body d-flex justify-content-center align-items-center">
+    <form [formGroup]="offerForm" class="offer-form">
+      <div class="offer-descr">
+        <label for="">Offer Description</label>
+        <textarea class="custom-styles" name="offer-d" id="" cols="30" formControlName="offerDescription" rows="2"></textarea>
+      </div>
+      <div class="offer-amount">
+        <label for="">Amount</label>
+        <input type="number" class="custom-styles" formControlName="offerAmount">
+      </div>
+    </form>
+  </div>
+  <div class="footer d-flex justify-content-center">
+    <div class="offer-actions text-right">
+      <button (click)="sendOffer()" class="btn btn-success">Attach</button>
+    </div>
+  </div>
+</app-modal>
+
+
+<app-modal #modalOfferAccept="CustomModal">
+    <div class="modal-toolbar">
+        <h3 class="mb-0">Accept Offer</h3>
+        <span (click)="modalOfferAccept.close()">Close</span>
+    </div>
+    
+    <div class="footer d-flex justify-content-center">
+        <div class="offer-actions text-center">
+        <button (click)="acceptOffer()" class="btn btn-success">Accept</button>
+        </div>
+    </div>
+</app-modal>
